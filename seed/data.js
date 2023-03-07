@@ -1,6 +1,6 @@
 import db from "../db/connection.js";
-import Log from "../models/Logs";
-import User from "../models/User.js";
+import Log from "../Models/Logs.js";
+import User from "../Models/Users.js";
 import bcrypt from "bcrypt";
 
 const insertData = async () => {
@@ -49,7 +49,7 @@ const insertData = async () => {
   ];
 
   // insert products into database
-  await Log.insertMany(products);
+  await Log.insertMany(logs);
   console.log("Created users & logs!");
 
   // close database connection. done.

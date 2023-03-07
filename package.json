@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devstart": "nodemon server.js"
+    "devstart": "nodemon server.js",
+    "seed": "node --experimental-json-modules seed/data.js"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,4 @@
   "devDependencies": {
     "nodemon": "^2.0.21"
   }
-  
 }
