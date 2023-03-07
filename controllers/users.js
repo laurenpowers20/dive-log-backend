@@ -1,16 +1,14 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../models/Users.js";
+import User from "../Models/Users.js";
 
 let SALT_ROUNDS = 10;
 let TOKEN_KEY = "areallylonggoodkey";
-
 
 if (process.env.NODE_ENV === "production") {
   SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
   TOKEN_KEY = process.env.TOKEN_KEY;
 }
-
 
 const today = new Date();
 const exp = new Date(today);
