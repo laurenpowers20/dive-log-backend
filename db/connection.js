@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let MONGODB_URI =
   process.env.LOG_MONGODB ||
-  "mongodb://127.0.0.1:27017/logsAuthenticationDatabase";
+  "mongodb://0.0.0.0:27017/logsAuthenticationDatabase";
 
 //  https://mongoosejs.com/docs/api.html#model_Model.findByIdAndUpdate
 mongoose.set("returnOriginal", false);
