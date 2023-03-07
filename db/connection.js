@@ -1,26 +1,20 @@
 import mongoose from "mongoose";
-
-const connectionString = "mongodb://127.0.0.1:27017logsAuthenticationDatabase";
-
-mongoose.connect(connectionString, mongooseConfig);
-let MONGODB_URI =
-  process.env.LOG_MONGODB ||
-  "mongodb://127.0.0.1:27017/logsAuthenticationDatabase";
+import chalk from "chalk";
 
 mongoose.set("returnOriginal", false);
 
 mongoose
-  .connect(MONGODB_URI)
-  .catch((error) =>
-    console.error("Error connecting to MongoDB: ", error.message)
-  );
+  .connect(process.env.MONGO_URL || "mongodb://127.0.0.1:27017/dive-log-api")
+  .catch((err) => {
+    console.log(`Error connection go MongoBD: ${err.message}`);
+  });
 
-mongoose.connection.on("disconnected", () =>
-  console.log(`Disconnected from MongoDB!`)
-);
+mongoose.connection.on("disconnected", () => {
+  console.log(chalk.bold("Disconnected from MongoDB!"));
+});
 
-mongoose.connection.on("error", (error) =>
-  console.error(`MongoDB connection error: ${error}`)
-);
+mongoose.connection.on("error", (err) => {
+  console.log(chalk.red(`MongoDB connection  error: ${err}`));
+});
 
 export default mongoose.connection;
