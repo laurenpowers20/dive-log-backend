@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devstart": "nodemon server.js",
+    "start": "nodemon server.js",
     "seed": "node --experimental-json-modules seed/data.js"
   },
   "keywords": [],
